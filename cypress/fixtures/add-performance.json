@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "isOpen": true,
+      "title": "title001cy",
+      "body": "body001cy",
+      "author": {
+        "username": "username001",
+        "name": "name001",
+        "id": "5f3260796e09414c5c038253"
+      },
+      "subject": {
+        "username": "username001",
+        "name": "name001",
+        "id": "5f3260796e09414c5c038253"
+      },
+      "comments": [],
+      "id": "5e8058af2389b219fc0f9aad"
+    }
+  ]
+}

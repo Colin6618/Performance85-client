@@ -1,0 +1,22 @@
+{
+  "data": {
+    "isOpen": true,
+    "title": "Cypress testing",
+    "body": "Body",
+    "date_opened": "2020-03-29T08:13:35.910Z",
+    "author": {
+      "username": "username001",
+      "name": "name001",
+      "id": "5f3260796e09414c5c038253"
+    },
+    "subject": {
+      "username": "username001",
+      "name": "name001",
+      "id": "5f3260796e09414c5c038253"
+    },
+    "activities": [],
+    "comments": [],
+    "performanceId": 1,
+    "id": "5e8058af2389b219fc0f2aad"
+  }
+}
