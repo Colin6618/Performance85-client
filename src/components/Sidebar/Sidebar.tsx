@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
           <Avatar
             className="dashboard__avatar"
             size={130}
-            username={user.username}
+            username={user?.username}
           />
           <div>
             <h2 className="text--bold">{user?.name}</h2>

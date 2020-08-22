@@ -1,0 +1,46 @@
+name: PF85Client-Deploy
+on:
+  push:
+    branches:
+      - master
+      - 'staging/**'
+      - 'hotfix/**'
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.14.1]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: |
+          npm install
+      - name: Production Build
+        run: |
+          npm run build
+      - name: Unit Tests
+        run: |
+          echo "Tested"
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: whoami
+      - name: Create tarball
+        run: tar -C dist -czvf dist.tar.gz .
+      - name: Upload tarball
+        uses: actions/upload-artifact@v1
+        with:
+          name: package.tgz
+          path: dist.tar.gz
