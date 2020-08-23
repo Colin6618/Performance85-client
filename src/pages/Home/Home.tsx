@@ -24,7 +24,7 @@ const Home: React.FC<HomeProps> = ({ right: Right }) => {
 
   return (
     <HomeWrapper>
-      <img className="home__shape" src={circleShapes} />
+      <img className="home__shape" src={circleShapes} alt="home" />
       <Flex>
         <div className="home__left">
           <div className="home__text">
