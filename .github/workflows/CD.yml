@@ -29,18 +29,19 @@ jobs:
       - name: Unit Tests
         run: |
           echo "Tested"
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: whoami
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v2.1.4
+        env:
+            SSH_PRIVATE_KEY: ${{ secrets.KEY }}
+            ARGS: "-rltgoDzvO"
+            SOURCE: "build/"
+            REMOTE_HOST: ${{ secrets.HOST }}
+            REMOTE_USER: ${{ secrets.USERNAME }}
+            TARGET: ${{ secrets.REMOTE_TARGET }}
       - name: Create tarball
-        run: tar -C dist -czvf dist.tar.gz .
+        run: tar -C build -czvf build.tar.gz .
       - name: Upload tarball
         uses: actions/upload-artifact@v1
         with:
           name: package.tgz
-          path: dist.tar.gz
+          path: build.tar.gz
