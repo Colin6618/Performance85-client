@@ -38,7 +38,6 @@ const Profiles = () => {
       );
     }
     if (users?.data?.length === 0) return <Illustration type="empty" />;
-    debugger;
     return users?.data.map((user: any) => (
       <Flex key={user.id} align="center" direction="column">
         <Avatar
