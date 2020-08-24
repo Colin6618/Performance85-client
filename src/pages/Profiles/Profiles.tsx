@@ -38,7 +38,7 @@ const Profiles = () => {
       );
     }
     if (users?.data?.length === 0) return <Illustration type="empty" />;
-
+    debugger;
     return users?.data.map((user: any) => (
       <Flex key={user.id} align="center" direction="column">
         <Avatar
@@ -60,7 +60,7 @@ const Profiles = () => {
         <h1>All Profiles</h1>
       </DashboardHeader>
 
-      <span className="color--gray">Total Users: {users?.totalDocs ?? 0}</span>
+      <span className="color--gray">Total Users: {users?.data?.length ?? 0}</span>
       <div className="users">{renderProfiles()}</div>
 
       {!isLoading && (
